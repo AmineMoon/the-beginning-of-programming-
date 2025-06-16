@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int num, reversedNum = 0, remainder;
+
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    // Handle negative numbers by making them positive first
+    int isNegative = 0;
+    if (num < 0) {
+        isNegative = 1;
+        num = -num;  // Work with the absolute value
+    }
+
+    // Reverse the number
+    while (num != 0) {
+        remainder = num % 10;          // Extract the last digit
+        reversedNum = reversedNum * 10 + remainder;  // Build the reversed number
+        num /= 10;                     // Remove the last digit
+    }
+
+    // Restore the negative sign if needed
+    if (isNegative) {
+        reversedNum = -reversedNum;
+    }
+
+    printf("Reversed number: %d\n", reversedNum);
+    return 0;
+}
