@@ -1,0 +1,16 @@
+
+
+#include <stdio.h>
+
+
+int main() {
+    int binary , remainder , decimal=0, weight=1 ;
+    printf("Enter half height: ");
+    scanf("%d", &binary);
+        while (binary > 0){
+           remainder = binary%10;
+           decimal+=remainder*weight;
+           binary/=10;
+           weight*=2;
+
+
