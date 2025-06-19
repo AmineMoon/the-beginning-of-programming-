@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+
+int main() {
+    int num, original, counter = 0, sum = 0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    original = num;
+    while (original != 0) {
+        original /= 10;
+        counter++;
+    }
+
+    printf(".........PROCESS OF COMBINATION..........\n");
+    printf("------------------------------------------\n");
+
+    original = num;
+    while (original != 0) {
+        int digit = original % 10;
+        sum += (int)(pow(digit, counter) + 0.5); // Rounding to handle floating-point errors
+        original /= 10;
+        
+    }
+
+    if (num == sum) {
+        printf("%d is Armstrong\n", num);
+    } else {
+        printf("%d is Not Armstrong\n", num);
+    }
+
+    return 0;
+}
