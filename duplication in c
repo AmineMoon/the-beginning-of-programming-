@@ -1,0 +1,39 @@
+ 
+#include <stdio.h>
+
+int main() {
+    int size, numbers[100];
+    
+    // Input array size
+    printf("Enter number of elements: ");
+    scanf("%d", &size);
+    
+    // Input array elements
+    printf("Enter %d numbers:\n", size);
+    for(int i = 0; i < size; i++) {
+        scanf("%d", &numbers[i]);
+    }
+    
+    // Remove duplicates
+    for(int i = 0; i < size; i++) {
+        for(int j = i + 1; j < size; ) {
+            if(numbers[i] == numbers[j]) {
+                // Shift elements left
+                for(int k = j; k < size - 1; k++) {
+                    numbers[k] = numbers[k + 1];
+                }
+                size--; // Reduce array size
+            } else {
+                j++; // Only increment if no deletion occurred
+            }
+        }
+    }
+    
+    // Print unique elements
+    printf("Unique elements:\n");
+    for(int i = 0; i < size; i++) {
+        printf("%d\n", numbers[i]);
+    }
+    
+    return 0;
+}  
