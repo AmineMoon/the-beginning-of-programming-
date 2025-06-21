@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main() {
+    int al ,*arr,sum=0;
+ printf("Enter a number : ");
+    scanf("%d", &al);
+     for(int i=0 ; i<al ; i++){
+printf("[%d]",i);
+scanf("%d",&arr[i]);
+     sum+= arr[i];
+}
+   printf ("sum = %d  " ,sum);
+    return 0;
+}
