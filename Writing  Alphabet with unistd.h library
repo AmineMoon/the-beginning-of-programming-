@@ -1,0 +1,32 @@
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+
+void tf_print_alphabet(int fd) {
+    char a = 'a';  // Start with 'a' (ASCII 97)
+    while (a <= 'z') {  // Continue until 'z' (ASCII 122)
+        write(fd, &a, 1);
+        write(fd, "\n", 1);  // Newline after each character
+        a++;
+    }
+}
+
+int main(void) {
+    // Print to console (stdout = fd 1)
+    tf_print_alphabet(1);
+    write(1, "\n", 1);
+    
+    // Create/open file for writing
+    int fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0600);
+    if (fd == -1) {
+        perror("Error opening file");
+        return 1;
+    }
+    
+    // Write alphabet to file twice
+    tf_print_alphabet(fd);
+    tf_print_alphabet(fd);
+    
+    close(fd);
+    return 0;
+}
