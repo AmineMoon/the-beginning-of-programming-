@@ -1,0 +1,41 @@
+#include <stdio.h>
+ int binarysearch (int arr[], int n , int target ){
+
+ int left=0; int right=n-1;
+ while (left<right){
+ int mid = (right+left)/2;
+ if (arr[mid]== target){
+     return mid;
+ }else if (arr[mid]<target){
+   left = mid + 1;
+ }else {
+    right = mid - 1;
+    }
+
+ }
+return -1;
+
+ }
+int main()
+{  int a , arr[100] , counter=0 , target ;
+
+printf("enter number ");
+scanf("%d",&a);
+printf("select: %d element of array \n " , a );
+for (int i=0 ; i<a ; i++){
+printf("[%d] index \n" ,counter  );
+scanf("%d", &arr[i]);
+counter++;
+}
+printf("Enter number search \n");
+scanf("%d",&target);
+
+ int result = binarysearch(arr,a,target);
+  if (result!= -1 ){
+    printf("the target found at index : [%d] " , result);
+  }else {
+    printf("item not found ");
+  }
+
+return 0;
+}
