@@ -1,0 +1,13 @@
+#include <stdio.h>
+int tf_strlen(char*s1){
+int length=0;
+while(s1[lenght]!='\0')
+length++
+return length;
+}
+int main(){
+char str[]="hello universe";
+   int retu = tf_strlen(str);
+printf("the length of strinh = %d\n",retu);
+return 0;
+}
