@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+char*tf_strcyp(char*s1,char*s2){
+char*original =s1;
+while(*s2!='\0'){
+*s1=*s2;
+s1++;
+s2++;
+    }
+*s1='\0';
+return original;
+}
+int main() {
+char a[]="this is the start not the end";
+char b[30];
+tf_strcyp(b,a);
+printf("coyp text %s /n ", b);
+return 0;
+}
