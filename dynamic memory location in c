@@ -1,0 +1,73 @@
+
+Real-World Analogy
+Static = A fixed parking spot (always the same size).
+
+Dynamic = Valet parking (request space when needed, return when done).
+
+
+
+
+
+ Basic malloc & free
+-------------------------------
+
+#include <stdlib.h>
+
+int main() {
+    int *arr = malloc(5 * sizeof(int));  // Heap allocation
+    if (arr == NULL) exit(1);            // Always check!
+
+    arr[0] = 10;                         // Use memory
+    free(arr);                           // Must free!
+}
+
+
+
+
+
+1   String Duplication (strdup)
+------------------------------------
+
+
+
+char *ft_strdup(const char *s) {
+    char *copy = malloc(strlen(s) + 1);  // +1 for '\0'
+    if (!copy) return NULL;
+    strcpy(copy, s);                     // Copy data
+    return copy;
+}
+
+int main() {
+    char *original = "Hello";
+    char *duplicate = ft_strdup(original); // Dynamic copy
+    printf("%s\n", duplicate);
+    free(duplicate);                      // Must free!
+} 
+
+
+
+
+
+2 Resizing an Array (realloc)
+---------------------------------------
+
+int *arr = malloc(3 * sizeof(int));
+arr[0] = 1; arr[1] = 2; arr[2] = 3;
+
+// Resize to 5 elements
+int *new_arr = realloc(arr, 5 * sizeof(int));
+if (new_arr) {
+    arr = new_arr;
+    arr[3] = 4; arr[4] = 5;
+}
+free(arr);  // Free resized array  
+
+
+
+
+
+
+
+
+
+
