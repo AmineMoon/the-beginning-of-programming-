@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int do_op(int nf, char op, int ns) {
+    int result = 0;
+    
+    if (op == '+') {
+        result = nf + ns;
+    } else if (op == '-') {
+        result = nf - ns;
+    } else if (op == '*') {
+        result = nf * ns;
+    } else if (op == '/') {
+        if (ns != 0) {
+            result = nf / ns;
+        } else {
+            printf("Error: Division by zero!\n");
+            return 0;
+        }
+    } else if (op == '%') {
+        if (ns != 0) {
+            result = nf % ns;
+        } else {
+            printf("Error: Modulo by zero!\n");
+            return 0;
+        }
+    } else {
+        printf("Error: Invalid operator!\n");
+        return 0;
+    }
+    return result;
+}
+
+int main() {
+    int numf, nums;
+    char ope;
+    
+    printf("Enter first number\n");
+    scanf("%d", &numf);
+    
+    printf("Choose from these operations [* - + / %%]\n");
+    scanf(" %c", &ope);  // Note the space before %c to skip whitespace
+    
+    printf("Enter second number\n");
+    scanf("%d", &nums);
+    
+    int outcome = do_op(numf, ope, nums);
+    printf("%d %c %d = %d\n", numf, ope, nums, outcome);
+    
+    return 0;
+}
