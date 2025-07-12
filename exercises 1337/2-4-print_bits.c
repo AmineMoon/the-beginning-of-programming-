@@ -16,7 +16,7 @@ int main (int p , char**str){
 return 0;
 }
    // Convert first character of argument to byte
-    unsigned char input = (unsigned char)argv[1][0];
+    unsigned char input = (unsigned char)str[1][0];
   // convert string to number
  // unsigned char input =(unsigned char) atoi (str[1]);
  write(1,"binany :",8);
