@@ -7,8 +7,8 @@ i++;
 return (unsigned char) s1[i]-(unsigned char) s2[i];
  }
 int main () {
-   printf("%d\n" ,ft_strcmp("hi","hi"));
-   printf("%d\n" ,ft_strcmp("he","hi"));
-    printf("%d\n" ,ft_strcmp("him","hi"));
+   printf("%d\n", ft_strcmp("abc", "abc"));  // 0
+    printf("%d\n", ft_strcmp("abc", "abd"));  // -1
+    printf("%d\n", ft_strcmp("bbc", "abc"));  // 1
 return 0;
 }
